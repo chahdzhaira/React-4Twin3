@@ -27,6 +27,8 @@ export default function Event (props){
         <p></p>
         <Button variant="danger" onClick={changeLike} >{e.like ? "Dislike" : "Like" }</Button>
         <Button variant="primary" onClick={bookEvent} disabled={e.nbTickets=== 0 ? true : false }>Book an event </Button>
+        <Link   className="text-decarotion-none btn btn-sm btn-danger mx-1" to={`/events/update/${e.id}`}> update</Link>
+        <Button variant="danger" onClick={() => { props.deleteevent(e.id) }} >delete</Button>
       </Card.Body>
     </Card>
     </>

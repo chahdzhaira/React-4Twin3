@@ -15,9 +15,23 @@ export default function Events (){
         setTimeout(()=> setShowWelcome(false), 3000) 
         return ()=> { 
             console.log("Welcome unmouting")
-            clearTimeout(() => setShowWelcome)
         }
     }, []) 
+
+    useEffect(() => {
+        const fetchlist = async () => {
+           const events = await getallEvents();
+           setListEvents(events.data);
+        }
+        fetchlist();
+     }, [])
+     
+     const deleteEvents = async (id) => {
+        // console.log(e.id)
+        await deleteEvent(id)
+        setListEvents(listEvent.filter((e) => e.id != id))
+        console.log(listEvent)
+     }
 
     return <>
     {

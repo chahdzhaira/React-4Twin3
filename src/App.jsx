@@ -19,6 +19,9 @@ function App() {
            <Route path="events">
            <Route index element={<Events/>} />  {/*tekhou auto el route principale events */}
            <Route path="details/:nom" element={<EventDetails/>} /> 
+           <Route path="details/:id" element={<EventDetails/>} />
+           <Route path="update/:id" element={<AddEvent/>}  />
+
         </Route>
 
         <Route path="*" element={<><p>Not found</p></>} />
